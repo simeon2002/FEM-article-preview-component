@@ -263,6 +263,7 @@ main {
   .article {
     flex-direction: row;
     overflow: visible;
+    box-shadow: 0 4rem 4rem -1rem hsla(210, 29%, 84%, 0.5);
   }
 
   .article__img {
@@ -290,6 +291,7 @@ main {
     background-color: var(--clr-grey-900);
     padding: 1.8rem 3.6rem;
     border-radius: 1rem;
+    box-shadow: 0 1rem 1rem hsla(210, 29%, 84%, 0.5);
   }
 
   .share--open .share-container::before {

@@ -4,44 +4,16 @@ This is a solution to the [Meet landing page challenge on Frontend Mentor](https
 
 ## Table of contents
 
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Retrospection](#retrospection)
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Useful resources](#useful-resources)
   - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the optimal layout depending on their device's screen size
-- See hover states for interactive elements
-
-### Screenshot
-
-#### Mobile view
-
-![Mobile view](./meet-landing-page-mobile.png)
-
-#### Tablet view
-
-![Tablet view](./meet-landing-page-tablet.png)
-
-#### Dekstop view
-
-![Desktop view](./meet-landing-page-desktop.png)
-
-### Links
-
-- Solution URL: [Github repo](https://github.com/simeon2002/FEM-meet-landing-page/)
-- Live Site URL: [Meet landing page](https://simeon2002.github.io/FEM-meet-landing-page/)
 
 ## My process
 
@@ -50,35 +22,65 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- responsive images
 
 ### Retrospection
 
 - Difficulties encountered?
-  - First → The step. I had issues with how to create it due to not wanting to pollute the HTML with visual-only wrappers
-    - first try → tried display flex with a paragraph putting a circular border around it but the step number wasn’t in the middle of the circle
-    - second try → tried to use before and after pseudo element, but then the spacing between sections would be messed up and calculation would have been counting pixels instead of uniform across the page.
-    - **Solution:** Scrapped this and instead used wrappers in the HTML in which the step number was wrapped into a circle, fixing this issue.
-  - Secondly → Since I learnt responsiveness starting with desktop-first, I have issues with thinking mobile-first
-    - _mainly using the responsive units to set image width and then to set the `max-width` of the container._
-    - Also the layouts seem to have more natural change when going from desktop to mobile, now it seems that I am adding so many styles that using utility classes (like `container` and `grid`) is impractical. e.g., on desktop I went from gridcolumns: 4 to 2 for tablet to 1 for mobile and now I have to keep adding these styles to specific sections instead of general utility classes applied.
-    - Another problem is that when going from desktop to mobile I could always adjust he max-width when something became too big. I always gave it `max-width` and afterwards padding for when it less than this max-width and then modified the max-width for containers when going down from f.e. 1400px viewport to 1200px viewport and afterwards I only used paddigns for table and mobiles on the `container` for the sections to adjust the width of the sections. Right now, this feels really weird, because just using padding on mobile and tablet and afterward max-width on desktop (like 1000px + veiwport) feels weird…
-  - Thirdly → Because of this responsiveness, had issues to make the images scale nicely in the hero section with `max-width`
-    - At first I defined the max-width of the hero to `112rem` (1120px) but then they won’t scale responsively since they are already too big for their container, so instead, I defined as `144rem` (1440px) and made them scale as `%` again with this time scaling nicely.
+  - How to make the footer element on hover take up the whole space.
+  - How to add the styling for the mobile and desktop views ‘on click’ (JS part is easy)
+    - I used a `share--open` class on the footer and then all the other elements that would change were added as children and prefixed with this `share--open` class as conditional styling. However, figuring out how to actually make the styling on hover was the difficult part. Learnt about creating triangles using borders though, very interesting.
+- Mistakes
+  - Had put align-items to center and the images kept sitting on center instead of using `object-fit: cover;` … couldn’t figure out the issue, until chatgpt pointed this out by accident after I had look for an hour and had taken a brake as well… So from now, whenever there is an issue, I think about _the assumptions → so this uses flexbox → how does flexbox work + what are the default values and what is the behavior for default values + have I changed those default values?_
+  - I didn’t know how to add the styles for the mobile overlay efficiently → Fix: Used conditional styling showing the elements with a ‘conditional’ class added with JS on the parent class of all the elements that have to be styled.
+  - How to make the footer element on hover take up the whole space.
+    - This wasn’t possible since the card itself has padding all around the textbox.
+    - **Fix: Use of negative margins to decrease the spacing and then use of padding to increase the space within the footer element itself so that the background colors takes the full bottom half.**
 - Questions?
-  - Any other way to think about mobile-first…? It feels weird
 - What would you do better next time?
-  - Set up my grid better to adjust for desktop and use less utility classes in that case
-  - Think about the layout a better beforehand, had to make some structural changes (for image element responsiveness especially)
+  - Give classes used for interactivity a clearer structure
 - Learnings/takeaways
-  - Learnt how to use the `picture` elmenet with media queries
-  - Getting slowly into mobile-first, feeling a bit weird but that’s ok.
+  - Creating a triangle using borders
+  - Use of negative margin to occupy the space and afterwards take up the space as padding so that the space is within the element itself.
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the component depending on their device's screen size
+- See the social media share links when they click the share icon
+
+### Screenshot
+
+#### Mobile view
+
+![Mobile view](./article-component-mobile.png)
+
+On click:
+
+![Tablet view](./article-component-mobile-on-click.png)
+
+#### Dekstop view
+
+![Desktop view](./article-component-desktop.png)
+
+On click:
+![Desktop view](./article-component-desktop-on-click.png)
+
+### Links
+
+- Solution URL: [Github repo](https://github.com/simeon2002/FEM-article-preview-component)
+- Live Site URL: [Meet landing page](https://simeon2002.github.io/FEM-article-preview-component/)
 
 ### Useful resources
 
 - MDN documentation
+
+### AI Collaboration
+
+ChatGPT helped me figure out that I had a mistake where I had my images centered with `align-items` instead of being stretched.
 
 ## Author
 

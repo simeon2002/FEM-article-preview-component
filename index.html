@@ -4,21 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
-    <title>Frontend Mentor | Article preview component</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 0.6875rem;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <title>Article preview component</title>
   </head>
   <body>
     <main>
@@ -31,14 +25,18 @@
             to help you make any room feel complete.
           </p>
           <footer class="article__footer">
-            <figure class="article__author-information">
-              <img src="./images/avatar-michelle.jpg" alt="Profile image of Michelle Appleton" class="aritcle__author-img" />
-              <figcaption "><p class="article__author-name">Michelle Appleton</p> <span class="article__publication-date">28 Jun 2020</span></figcaption>
-            </figure>
-            <button class="btn btn--share">Share</button>
+            <img src="./images/avatar-michelle.jpg" alt="Profile image of Michelle Appleton" class="aritcle__author-img" />
+            <div class="article__info">
+              <p class="article__author-name">Michelle Appleton</p>
+              <time datetime="2020-06-28">28 Jun 2020</time>
+            </div>
+
+            <button class="btn btn--share"><ion-icon name="share-outline" class="article__share-icon"></ion-icon></button>
           </footer>
         </div>
       </article>
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
